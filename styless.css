@@ -15,6 +15,9 @@ nav {
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
+    padding-left: 240px;
+    padding-top: 160px;
+    width: 792px;
 }
 
 #word {
@@ -26,6 +29,8 @@ nav {
     width: 960px;
     align-items: flex-start;
     gap: 48px;
+    padding-left: 240px;
+    padding-top: 64px;
 }
 
 .product-item {
@@ -80,6 +85,8 @@ nav {
     gap: 16px;
     align-self: stretch;
 }
+
+
 
 .title {
     display: flex;
@@ -146,7 +153,6 @@ nav {
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
-    /* 16.8px */
     text-transform: uppercase;
 }
 
@@ -176,3 +182,78 @@ nav {
     border-radius: 64px;
     border: 2px solid var(--yellow, #FFBD5C);
 }
+
+.pics {
+    height: 220px;
+    align-self: stretch;
+}
+
+.stamp {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    padding-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container input[type="radio"],
+.container input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-right: 10px;
+    position: relative;
+    background-color: #fff;
+}
+
+.container input[type="radio"]:checked+.checkmark,
+.container input[type="checkbox"]:checked + .custom_checkmark {
+    background-color: #FF7733;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    background-color: #FF7733;
+    border-radius: 50%;
+    display: none;
+}
+
+.container input[type="radio"]:checked+.checkmark::after {
+    display: block;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+}
+
+.custom_checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    background-color: #fff;
+}
+
