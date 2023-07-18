@@ -3,11 +3,6 @@ body {
     margin: 0%;
 }
 
-nav {
-    padding: 24px, 32px, 24px, 32px;
-    background: var(--white, #FFF);
-}
-
 #slogan {
     color: var(--deep-blue, #023A6B);
     font-family: Eczar;
@@ -41,16 +36,31 @@ nav {
     flex: 1 0 0;
 }
 
-
-
 .navbar {
     display: flex;
     padding: 24px 32px;
     justify-content: space-between;
     align-items: center;
+    background: var(--white, #FFF);
 }
 
-.nav {
+#logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.cart {
+    display: flex;
+    padding-right: 0px;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav,
+.cart-text {
     color: #023A6B;
     text-transform: uppercase;
     font-family: Open Sans;
@@ -205,9 +215,9 @@ nav {
 
 .container input[type="radio"],
 .container input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .checkmark {
@@ -221,7 +231,7 @@ nav {
 }
 
 .container input[type="radio"]:checked+.checkmark,
-.container input[type="checkbox"]:checked + .custom_checkmark {
+.container input[type="checkbox"]:checked+.custom_checkmark {
     background-color: #FF7733;
 }
 
@@ -257,3 +267,57 @@ nav {
     background-color: #fff;
 }
 
+@media (max-width: 375px) {
+
+    /* Mobile layout styles for screens with a maximum width of 375px */
+    .navbar {
+        display: flex;
+        padding: 52px 24px 16px 24px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #logo {
+        display: flex;
+        width: 154px;
+        height: 34px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 5.31px;
+        flex-shrink: 0;
+    }
+
+    .cart-text {
+        display: none;
+    }
+
+    #slogan {
+        font-size: 24px;
+        line-height: 130%;
+        padding-top: 32px;
+        padding-left: 24px;
+        width: 327px;
+    }
+
+    .product-list {
+        display: flex;
+        width: 327px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 40px;
+        padding-left: 24px;
+        padding-top: 40px;
+        padding-bottom: 48px;
+        padding-right: 24px;
+    }
+
+    .product-item {
+        display: flex;
+        padding-bottom: 0px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 24px;
+        align-self: stretch;
+    }
+
+}
