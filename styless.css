@@ -3,6 +3,18 @@ body {
     margin: 0%;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+  }
+
 #slogan {
     color: var(--deep-blue, #023A6B);
     font-family: 'Eczar', serif;
@@ -10,9 +22,8 @@ body {
     font-style: normal;
     font-weight: 700;
     line-height: 120%;
-    padding-left: 240px;
-    padding-top: 160px;
-    width: 792px;
+    margin-top: 64px;
+    margin-bottom: 64px;
 }
 
 #word {
@@ -21,11 +32,9 @@ body {
 
 .product-list {
     display: flex;
-    width: 960px;
     align-items: flex-start;
     gap: 48px;
-    padding-left: 240px;
-    padding-top: 64px;
+    flex-wrap: wrap;
 }
 
 .product-item {
@@ -68,12 +77,6 @@ body {
     font-weight: 700;
     line-height: 16px;
     letter-spacing: 0em;
-}
-
-.navbar-left,
-.navbar-right {
-    display: flex;
-    align-items: center;
 }
 
 .description {
@@ -253,9 +256,21 @@ body {
     background-color: #fff;
 }
 
-@media (max-width: 375px) {
+@media (max-width: 1400px) {
+    .content-wrapper {
+        width: 80%;
+      }
+}
 
-    /* Mobile layout styles for screens with a maximum width of 375px */
+@media (max-width: 900px) {
+    .content-wrapper {
+        width: 90%;
+      }
+}
+
+
+@media (max-width: 600px) {
+
     .navbar {
         display: flex;
         padding: 52px 24px 16px 24px;
@@ -279,22 +294,15 @@ body {
 
     #slogan {
         font-size: 24px;
-        line-height: 130%;
-        padding-top: 32px;
-        padding-left: 24px;
-        width: 327px;
+        margin-top: 32px;
+        margin-bottom: 40px;
     }
 
     .product-list {
         display: flex;
-        width: 327px;
         flex-direction: column;
         align-items: flex-start;
         gap: 40px;
-        padding-left: 24px;
-        padding-top: 40px;
-        padding-bottom: 48px;
-        padding-right: 24px;
     }
 
     .product-item {
