@@ -5,7 +5,7 @@ body {
 
 #slogan {
     color: var(--deep-blue, #023A6B);
-    font-family: Eczar;
+    font-family: 'Eczar', serif;
     font-size: 48px;
     font-style: normal;
     font-weight: 700;
@@ -63,7 +63,7 @@ body {
 .cart-text {
     color: #023A6B;
     text-transform: uppercase;
-    font-family: Open Sans;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-weight: 700;
     line-height: 16px;
@@ -107,7 +107,7 @@ body {
 
 .p_name {
     color: var(--deep-blue, #023A6B);
-    font-family: Eczar;
+    font-family: 'Eczar', serif;
     font-size: 32px;
     font-style: normal;
     font-weight: 700;
@@ -122,7 +122,7 @@ body {
     border-radius: 16px;
     background: var(--orange, #F73);
     color: var(--white, #FFF);
-    font-family: Eczar;
+    font-family: 'Eczar', serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
@@ -158,7 +158,7 @@ body {
 
 .product-text {
     color: var(--deep-blue, #023A6B);
-    font-family: Open Sans;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
@@ -183,7 +183,7 @@ body {
 
 .text {
     color: var(--deep-blue, #023A6B);
-    font-family: Open Sans;
+    font-family: 'Open Sans', sans-serif;
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
