@@ -76,18 +76,6 @@ body {
     align-items: center;
 }
 
-.navbar-item {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: #333;
-    margin-right: 10px;
-}
-
-.navbar-item img {
-    margin-right: 10px;
-}
-
 .description {
     display: flex;
     flex-direction: column;
@@ -96,8 +84,6 @@ body {
     align-self: stretch;
 }
 
-
-
 .title {
     display: flex;
     align-items: flex-start;
@@ -105,7 +91,7 @@ body {
     align-self: stretch;
 }
 
-.p_name {
+.product_name {
     color: var(--deep-blue, #023A6B);
     font-family: 'Eczar', serif;
     font-size: 32px;
@@ -318,6 +304,10 @@ body {
         align-items: flex-start;
         gap: 24px;
         align-self: stretch;
+    }
+
+    .product_name {
+        font-size: 24px;
     }
 
 }
