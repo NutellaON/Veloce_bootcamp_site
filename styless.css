@@ -228,6 +228,7 @@ body {
 .container input[type="checkbox"] {
     position: absolute;
     opacity: 0;
+
 }
 
 .product-item__radiomark {
@@ -238,6 +239,7 @@ body {
     border-radius: 50%;
     position: relative;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .product-item__radiomark::after {
@@ -289,6 +291,7 @@ body {
     margin-right: 10px;
     position: relative;
     background-color: #fff;
+    cursor: pointer;
 }
 
 .product-item__info {
