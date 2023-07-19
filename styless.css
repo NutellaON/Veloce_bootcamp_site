@@ -252,13 +252,12 @@ body {
     content: "";
     position: absolute;
     top: 50%;
-    left: 50%;
+	left: 50%;
     transform: translate(-50%, -50%);
-    width: 6px;
-    height: 6px;
-    background-color: #ffffff;
-    border-radius: 50%;
-    display: none;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background: white;
 }
 
 .container input[type="radio"]:checked+.product-item__checkmark::after {
@@ -272,8 +271,8 @@ body {
 
 .product-item__checkmark {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 4px;
     margin-right: 10px;
     position: relative;
