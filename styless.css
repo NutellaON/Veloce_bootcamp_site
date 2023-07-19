@@ -1,5 +1,5 @@
 body {
-    background: var(--light-cream, #FEF2E8);
+    background: #FEF2E8;
     margin: 0%;
 }
 
@@ -8,7 +8,7 @@ body {
     padding: 24px 32px;
     justify-content: space-between;
     align-items: center;
-    background: var(--white, #FFF);
+    background: #FFF;
 }
 
 .container {
@@ -21,7 +21,7 @@ body {
     display: flex;
     flex-direction: column;
     width: 70%;
-  }
+}
 
 #slogan {
     color: var(--deep-blue, #023A6B);
@@ -172,6 +172,13 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+.product-item__button:hover {
+    background-color: #FFBD5C;
 }
 
 .product-item__button--text {
@@ -186,19 +193,29 @@ body {
     border: 2px solid var(--yellow, #FFBD5C);
 }
 
-.pics {
-    height: 220px;
-    align-self: stretch;
+.product-item__container {
+    position: relative;
+    display: inline-block;
 }
 
 .stamp {
-    display: flex;
+    position: absolute;
     width: 80px;
     height: 80px;
     padding-bottom: 0px;
-    justify-content: center;
-    align-items: center;
     flex-shrink: 0;
+    bottom: 16px;
+    right: 40px;
+    animation: rotateStamp 4s linear infinite;
+}
+
+@keyframes rotateStamp {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .container {
@@ -215,17 +232,20 @@ body {
 
 .product-item__radiomark {
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
     border-radius: 50%;
     margin-right: 10px;
     position: relative;
     background-color: #fff;
 }
 
-.container input[type="radio"]:checked+.product-item__radiomark,
-.container input[type="checkbox"]:checked+.product-item__checkmark {
+.container input[type="radio"]:checked+.product-item__radiomark {
     background-color: #FF7733;
+}
+
+.container input[type="checkbox"]:checked+.product-item__checkmark {
+    background-color: #FFBD5C;
 }
 
 .product-item__checkmark::after {
@@ -236,7 +256,7 @@ body {
     transform: translate(-50%, -50%);
     width: 6px;
     height: 6px;
-    background-color: #FF7733;
+    background-color: #ffffff;
     border-radius: 50%;
     display: none;
 }
@@ -260,16 +280,24 @@ body {
     background-color: #fff;
 }
 
+.product-item__info {
+    transition: transform 0.3s ease;
+}
+
+.product-item__info:hover {
+    transform: scale(1.25);
+}
+
 @media (max-width: 1400px) {
     .content-wrapper {
         width: 80%;
-      }
+    }
 }
 
 @media (max-width: 900px) {
     .content-wrapper {
         width: 90%;
-      }
+    }
 }
 
 
