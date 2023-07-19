@@ -157,6 +157,7 @@ body {
     font-weight: 700;
     line-height: 120%;
     text-transform: uppercase;
+    cursor: pointer;
 }
 
 .product-item__bottom {
@@ -204,7 +205,7 @@ body {
     height: 80px;
     padding-bottom: 0px;
     flex-shrink: 0;
-    bottom: 16px;
+    bottom: 20px;
     right: 40px;
     animation: rotateStamp 4s linear infinite;
 }
@@ -227,23 +228,34 @@ body {
 .container input[type="checkbox"] {
     position: absolute;
     opacity: 0;
-    cursor: pointer;
 }
 
 .product-item__radiomark {
+    margin: 0px;
     display: inline-block;
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    margin-right: 10px;
     position: relative;
     background-color: #fff;
 }
 
-.container input[type="radio"]:checked+.product-item__radiomark {
-    background-color: #FF7733;
+.product-item__radiomark::after {
+    content: "";
+    position: absolute;
+    display: none;
 }
 
+.container input[type="radio"]:checked + .product-item__radiomark::after {
+    display: block;
+    top: 50%;
+	left: 50%;
+    transform: translate(-50%, -50%);
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: #FF7733;
+}
 .container input[type="checkbox"]:checked+.product-item__checkmark {
     background-color: #FFBD5C;
 }
