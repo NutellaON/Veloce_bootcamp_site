@@ -7,8 +7,14 @@ import { Component } from '@angular/core';
 })
 export class ProductPageComponent {
   coffeeArray: any[] = [
-    { name: "Extra Late", image: "assets/Coffe_Latte.png", alt: "Coffe Latte", price: 8.99 },
-    { name: "Cappuccino", image: "assets/Cappuccino.png", alt: "Cappuccino", price: 9.99 },
-    { name: "Moccachino", image: "assets/Moccachino.png", alt: "Moccachino", price: 7.29 },
+    { name: "Extra Late", image: "assets/Coffe_Latte.png", alt: "Coffe Latte", price: 8.99, count: 0 },
+    { name: "Cappuccino", image: "assets/Cappuccino.png", alt: "Cappuccino", price: 9.99, count: 0 },
+    { name: "Moccachino", image: "assets/Moccachino.png", alt: "Moccachino", price: 7.29, count: 0 },
   ];
+
+  totalCount: number = 0;
+
+  onTotalCounterChanged(totalCount: number) {
+    this.totalCount = totalCount;
+  }
 }

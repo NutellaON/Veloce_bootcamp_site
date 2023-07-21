@@ -1,5 +1,5 @@
 <section class="product-list">
-    <div class="product-item" *ngFor="let product of coffeItems">
+    <div class="product-item" *ngFor="let product of coffeItems; let i = index">
         <div class="product-item__container">
             <img class="prudct-item__stamp" src="assets/Stamp.svg" alt="Stamp" *ngIf="product.alt === 'Coffe Latte'">
             <img class="product-item__image" [src]="product.image" alt="{{ product.alt }}">
@@ -31,15 +31,13 @@
                 </div>
                 <div class="product-item__bottom">
                     <div class="button-container">
-                        <button class="product-item__button" id="addToCartButton" onclick="addToCart(this)">
+                        <button class="product-item__button" id="addToCartButton" (click)="addToCart(i)" *ngIf="!showAddToCart[i]">
                             <div class="product-item__button--text" id="addText">Add to cart</div>
                         </button>
-                        <div class="counter-wrapper" id="counterWrapper">
-                            <button class="product-item__button--counter"
-                                onclick="decrementCounter(this)">-</button>
-                            <div id="product-item__counter" class="counter">1</div>
-                            <button class="product-item__button--counter"
-                                onclick="incrementCounter(this)">+</button>
+                        <div class="counter-wrapper" id="counterWrapper" [style.display]="showAddToCart[i] ? 'flex' : 'none'">
+                            <button class="product-item__button--counter" (click)="decrementCounter(i)">-</button>
+                            <div id="product-item__counter" class="counter">{{ coffeItems[i].count }}</div>
+                            <button class="product-item__button--counter" (click)="incrementCounter(i)">+</button>
                         </div>
                     </div>
                     <img class="product-item__info" src="assets/Info.svg" alt="info">
