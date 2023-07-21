@@ -53,3 +53,27 @@
 .header__cart-text:hover {
     color: #FF7733;
 }
+
+@media (max-width: 600px) {
+
+    .header {
+        display: flex;
+        padding: 52px 24px 16px 24px;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header__logo {
+        display: flex;
+        width: 154px;
+        height: 34px;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 5.31px;
+        flex-shrink: 0;
+    }
+
+    .header__cart-text {
+        display: none;
+    }
+}

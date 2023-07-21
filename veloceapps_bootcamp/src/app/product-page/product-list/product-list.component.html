@@ -1,0 +1,50 @@
+<section class="product-list">
+    <div class="product-item" *ngFor="let product of coffeItems">
+        <div class="product-item__container">
+            <img class="prudct-item__stamp" src="assets/Stamp.svg" alt="Stamp" *ngIf="product.alt === 'Coffe Latte'">
+            <img class="product-item__image" [src]="product.image" alt="{{ product.alt }}">
+        </div>
+        <div class="product-item__description">
+            <div class="product-item__title">
+                <div class="product-item__name">{{ product.name }}</div>
+                <div class="product-item__price">${{ product.price }}</div>
+            </div>
+            <div class="product-item__additional">
+                <div class="product-item__radio-group">
+                    <label class="product-item__radio">
+                        <input type="radio" checked="checked" name="{{ product.name }}">
+                        <span class="product-item__radiomark"></span>
+                        <p class="product-item__text">250 ML</p>
+                    </label>
+                    <label class="product-item__radio">
+                        <input type="radio" name="{{ product.name }}">
+                        <span class="product-item__radiomark"></span>
+                        <p class="product-item__text">500 ML</p>
+                    </label>
+                </div>
+                <div class="product-item__checkbox">
+                    <label class="product-item__checkbox-label">
+                        <input type="checkbox">
+                        <span class="product-item__checkmark"></span>
+                        <div class="product-item__text">Add sugar</div>
+                    </label>
+                </div>
+                <div class="product-item__bottom">
+                    <div class="button-container">
+                        <button class="product-item__button" id="addToCartButton" onclick="addToCart(this)">
+                            <div class="product-item__button--text" id="addText">Add to cart</div>
+                        </button>
+                        <div class="counter-wrapper" id="counterWrapper">
+                            <button class="product-item__button--counter"
+                                onclick="decrementCounter(this)">-</button>
+                            <div id="product-item__counter" class="counter">1</div>
+                            <button class="product-item__button--counter"
+                                onclick="incrementCounter(this)">+</button>
+                        </div>
+                    </div>
+                    <img class="product-item__info" src="assets/Info.svg" alt="info">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
