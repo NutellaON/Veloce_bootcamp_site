@@ -10,9 +10,11 @@ export class ProductListComponent {
   @Input() coffeItems: any[] = [];
   totalCount:number = 0;
   showAddToCart: boolean[] = [];
+  selectedCoffee: any = null;
+  
 
   constructor(private totalCountService: TotalCountService) { }
-  
+
   addToCart(index: number) {
     this.showAddToCart[index] = !this.showAddToCart[index];
     this.coffeItems[index].count++;
@@ -43,5 +45,13 @@ export class ProductListComponent {
 
   readCoffe() {
     console.log(this.coffeItems);
+  }
+
+  showCoffeeInfo(coffee: any) {
+    this.selectedCoffee = coffee;
+  }
+
+  closeCoffeeInfo() {
+    this.selectedCoffee = null;
   }
 }

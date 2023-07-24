@@ -13,19 +13,22 @@
                 <form>
                     <div class="product-item__radio-group">
                         <label class="product-item__radio">
-                            <input type="radio" [value]=250 name="{{ product.name }}_size" [(ngModel)]="product.size" (click)="readCoffe()">
+                            <input type="radio" [value]=250 name="{{ product.name }}_size" [(ngModel)]="product.size"
+                                (click)="readCoffe()">
                             <span class="product-item__radiomark"></span>
                             <p class="product-item__text">250 ML</p>
                         </label>
                         <label class="product-item__radio">
-                            <input type="radio" [value]=500 name="{{ product.name }}_size" [(ngModel)]="product.size" (click)="readCoffe()">
+                            <input type="radio" [value]=500 name="{{ product.name }}_size" [(ngModel)]="product.size"
+                                (click)="readCoffe()">
                             <span class="product-item__radiomark"></span>
                             <p class="product-item__text">500 ML</p>
                         </label>
                     </div>
                     <div class="product-item__checkbox">
                         <label class="product-item__checkbox-label">
-                            <input type="checkbox" [(ngModel)]="product.hasSugar" name="{{ product.name }}_sugar" (click)="readCoffe()">
+                            <input type="checkbox" [(ngModel)]="product.hasSugar" name="{{ product.name }}_sugar"
+                                (click)="readCoffe()">
                             <span class="product-item__checkmark"></span>
                             <div class="product-item__text">Add sugar</div>
                         </label>
@@ -33,18 +36,22 @@
                 </form>
                 <div class="product-item__bottom">
                     <div class="button-container">
-                        <button class="product-item__button" id="addToCartButton" (click)="addToCart(i)" *ngIf="!showAddToCart[i]">
+                        <button class="product-item__button" id="addToCartButton" (click)="addToCart(i)"
+                            *ngIf="!showAddToCart[i]">
                             <div class="product-item__button--text" id="addText">Add to cart</div>
                         </button>
-                        <div class="counter-wrapper" id="counterWrapper" [style.display]="showAddToCart[i] ? 'flex' : 'none'">
+                        <div class="counter-wrapper" id="counterWrapper"
+                            [style.display]="showAddToCart[i] ? 'flex' : 'none'">
                             <button class="product-item__button--counter" (click)="decrementCounter(i)">-</button>
                             <div id="product-item__counter" class="counter">{{ coffeItems[i].count }}</div>
                             <button class="product-item__button--counter" (click)="incrementCounter(i)">+</button>
                         </div>
                     </div>
-                    <img class="product-item__info" src="assets/Info.svg" alt="info">
+                    <img class="product-item__info" src="assets/Info.svg" alt="info" (click)="showCoffeeInfo(product)">
                 </div>
             </div>
         </div>
     </div>
 </section>
+<app-coffee-info *ngIf="selectedCoffee" [coffee]="selectedCoffee" (closeClicked)="closeCoffeeInfo()"></app-coffee-info>
+
