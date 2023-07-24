@@ -12,7 +12,7 @@ export class ProductListComponent {
   showAddToCart: boolean[] = [];
 
   constructor(private totalCountService: TotalCountService) { }
-
+  
   addToCart(index: number) {
     this.showAddToCart[index] = !this.showAddToCart[index];
     this.coffeItems[index].count++;
@@ -39,5 +39,9 @@ export class ProductListComponent {
   private calculateTotalCount(): void {
     const totalCount = this.coffeItems.reduce((total, coffeeItem) => total + coffeeItem.count, 0);
     this.totalCountService.setTotalCount(totalCount);
+  }
+
+  readCoffe() {
+    console.log(this.coffeItems);
   }
 }

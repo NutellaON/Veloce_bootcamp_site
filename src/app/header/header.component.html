@@ -1,9 +1,14 @@
 <header class="header">
-    <img class="header__logo" src="assets/Logo.svg" alt="Logo">
+    <a routerLink="">
+        <img class="header__logo" src="assets/Logo.svg" alt="Logo">
+    </a>
     <div class="header__cart">
         <div class="header__cart-content">
-            <div id="counterCart" class="header__total-count" [style.display]="(totalItemCount > 0) ? 'flex' : 'none'">{{totalItemCount}}</div>
-            <img id="cartImage" [src]="totalItemCount > 0 ? 'assets/Shopping_Cart(item).svg' : 'assets/Shopping_Cart.svg'" alt="Shopping Cart">
+            <div id="counterCart" class="header__total-count" [style.display]="(totalItemCount > 0) ? 'flex' : 'none'">
+                {{totalItemCount}}</div>
+            <img id="cartImage"
+                [src]="totalItemCount > 0 ? 'assets/Shopping_Cart(item).svg' : 'assets/Shopping_Cart.svg'"
+                alt="Shopping Cart">
         </div>
         <div class="header__cart-text">
             Shopping <br> Cart

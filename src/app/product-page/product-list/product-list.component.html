@@ -10,25 +10,27 @@
                 <div class="product-item__price">${{ product.price }}</div>
             </div>
             <div class="product-item__additional">
-                <div class="product-item__radio-group">
-                    <label class="product-item__radio">
-                        <input type="radio" checked="checked" name="{{ product.name }}">
-                        <span class="product-item__radiomark"></span>
-                        <p class="product-item__text">250 ML</p>
-                    </label>
-                    <label class="product-item__radio">
-                        <input type="radio" name="{{ product.name }}">
-                        <span class="product-item__radiomark"></span>
-                        <p class="product-item__text">500 ML</p>
-                    </label>
-                </div>
-                <div class="product-item__checkbox">
-                    <label class="product-item__checkbox-label">
-                        <input type="checkbox">
-                        <span class="product-item__checkmark"></span>
-                        <div class="product-item__text">Add sugar</div>
-                    </label>
-                </div>
+                <form>
+                    <div class="product-item__radio-group">
+                        <label class="product-item__radio">
+                            <input type="radio" [value]=250 name="{{ product.name }}_size" [(ngModel)]="product.size" (click)="readCoffe()">
+                            <span class="product-item__radiomark"></span>
+                            <p class="product-item__text">250 ML</p>
+                        </label>
+                        <label class="product-item__radio">
+                            <input type="radio" [value]=500 name="{{ product.name }}_size" [(ngModel)]="product.size" (click)="readCoffe()">
+                            <span class="product-item__radiomark"></span>
+                            <p class="product-item__text">500 ML</p>
+                        </label>
+                    </div>
+                    <div class="product-item__checkbox">
+                        <label class="product-item__checkbox-label">
+                            <input type="checkbox" [(ngModel)]="product.hasSugar" name="{{ product.name }}_sugar" (click)="readCoffe()">
+                            <span class="product-item__checkmark"></span>
+                            <div class="product-item__text">Add sugar</div>
+                        </label>
+                    </div>
+                </form>
                 <div class="product-item__bottom">
                     <div class="button-container">
                         <button class="product-item__button" id="addToCartButton" (click)="addToCart(i)" *ngIf="!showAddToCart[i]">
