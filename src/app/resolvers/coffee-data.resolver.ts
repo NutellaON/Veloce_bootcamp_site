@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { Observable } from 'rxjs';
-import { CoffeeItem } from './interfaces/coffee-item.interface';
-import { CoffeeService } from './coffee.service';
+import { CoffeeItem } from '../product-page/interfaces/coffee-item.interface';
+import { CoffeeService } from '../services/coffee.service';
 
 @Injectable({
     providedIn: 'root'

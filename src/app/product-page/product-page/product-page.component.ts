@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CoffeeItem } from './interfaces/coffee-item.interface';
-import { CoffeeService } from './coffee.service';
+import { CoffeeItem } from '.././interfaces/coffee-item.interface';
+import { CoffeeService } from 'src/app/services/coffee.service';
 import { ActivatedRoute } from '@angular/router'
 
 @Component({

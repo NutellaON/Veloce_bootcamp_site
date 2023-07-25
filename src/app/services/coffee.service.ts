@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { CoffeeItem } from './interfaces/coffee-item.interface';
+import { CoffeeItem } from '../product-page/interfaces/coffee-item.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CoffeeService {
 
-  private apiUrl = 'http://localhost:4200/app/products.json';
+  private apiUrl = 'app/products.json';
 
   constructor(private http: HttpClient) { }
 
