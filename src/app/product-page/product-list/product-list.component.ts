@@ -9,6 +9,7 @@ import { CoffeeItem } from '../interfaces/coffee-item.interface';
 })
 export class ProductListComponent {
   @Input() coffeItems: CoffeeItem[] = [];
+  @Input() selectedSize: number[] = [];
   totalCount:number = 0;
   showAddToCart: boolean[] = [];
   selectedCoffee?: CoffeeItem;

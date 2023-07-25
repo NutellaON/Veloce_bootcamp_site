@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router'
 export class ProductPageComponent implements OnInit {
   coffeeArray: CoffeeItem[] = [];
   totalCount: number = 0;
+  selectedSize: number[] = [];
 
   constructor(
     private coffeeService: CoffeeService,
@@ -21,6 +22,8 @@ export class ProductPageComponent implements OnInit {
     this.route.data.subscribe((data) => {
       console.log(data);
       this.coffeeArray = data['CoffeeItem'];
+
+      this.selectedSize = this.coffeeArray.map(() => 250);
     });
   }
 
