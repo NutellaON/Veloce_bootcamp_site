@@ -2,7 +2,6 @@ export interface CoffeeItem {
     id: string;
     name: string;
     image: string;
-    count: number;
     price: {
         [size: string]: number; // Price can be represented as an object with dynamic keys (e.g., "250", "500")
     };

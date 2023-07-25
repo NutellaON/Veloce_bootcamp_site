@@ -43,7 +43,7 @@
                         <div class="counter-wrapper" id="counterWrapper"
                             [style.display]="showAddToCart[i] ? 'flex' : 'none'">
                             <button class="product-item__button--counter" (click)="decrementCounter(i)">-</button>
-                            <div id="product-item__counter" class="counter">{{ coffeItems[i].count }}</div>
+                            <div id="product-item__counter" class="counter">{{ counter[i] }}</div>
                             <button class="product-item__button--counter" (click)="incrementCounter(i)">+</button>
                         </div>
                     </div>

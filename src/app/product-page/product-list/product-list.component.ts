@@ -13,35 +13,38 @@ export class ProductListComponent {
   totalCount:number = 0;
   showAddToCart: boolean[] = [];
   selectedCoffee?: CoffeeItem;
+  counter: number[]=[];
 
-  constructor(private totalCountService: TotalCountService) { }
+  constructor(private totalCountService: TotalCountService) {
+    this.counter = this.coffeItems.map(() => 0);
+  }
 
   addToCart(index: number) {
+    this.counter[index] = 1;
     this.showAddToCart[index] = !this.showAddToCart[index];
-    this.coffeItems[index].count++;
     this.calculateTotalCount();
   }
 
   incrementCounter(index: number) {
-    this.coffeItems[index].count++;
+    this.counter[index]++;
     this.calculateTotalCount();
   }
 
   decrementCounter(index: number) {
 
-    if (this.coffeItems[index].count == 1) {
+    if (this.counter[index] == 1) {
       this.showAddToCart[index] = false;
-      this.coffeItems[index].count = 0;
+      this.counter[index] = 0;
     }
     else {
-      this.coffeItems[index].count--;
+      this.counter[index]--;
     }
     this.calculateTotalCount();
   }
 
   private calculateTotalCount(): void {
-    const totalCount = this.coffeItems.reduce((total, coffeeItem) => total + coffeeItem.count, 0);
-    this.totalCountService.setTotalCount(totalCount);
+    this.totalCount = this.counter.reduce((total, count) => total + count, 0);
+    this.totalCountService.setTotalCount(this.totalCount);
   }
 
   readCoffe() {
