@@ -1,5 +1,6 @@
 import { Component, Input,  } from '@angular/core';
 import { TotalCountService } from './service/total-count.service';
+import { CoffeeItem } from '../interfaces/coffee-item.interface';
 
 @Component({
   selector: 'app-product-list',
@@ -7,11 +8,10 @@ import { TotalCountService } from './service/total-count.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent {
-  @Input() coffeItems: any[] = [];
+  @Input() coffeItems: CoffeeItem[] = [];
   totalCount:number = 0;
   showAddToCart: boolean[] = [];
-  selectedCoffee: any = null;
-  
+  selectedCoffee?: CoffeeItem;
 
   constructor(private totalCountService: TotalCountService) { }
 
@@ -52,6 +52,6 @@ export class ProductListComponent {
   }
 
   closeCoffeeInfo() {
-    this.selectedCoffee = null;
+    this.selectedCoffee = undefined;
   }
 }

@@ -1,18 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CoffeeItem } from './interfaces/coffee-item.interface';
+import { CoffeeService } from './coffee.service';
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
   styleUrls: ['./product-page.component.css']
 })
-export class ProductPageComponent {
-  coffeeArray: any[] = [
-    { name: "Extra Late", image: "assets/Coffe_Latte.png", alt: "Coffe Latte", price: 8.99, size: 250, hasSugar: true, count: 0 },
-    { name: "Cappuccino", image: "assets/Cappuccino.png", alt: "Cappuccino", price: 9.99, size: 250, hasSugar: false, count: 0 },
-    { name: "Moccachino", image: "assets/Moccachino.png", alt: "Moccachino", price: 7.29, size: 250, hasSugar: false, count: 0 },
-  ];
-
+export class ProductPageComponent implements OnInit {
+  coffeeArray: CoffeeItem[] = [];
   totalCount: number = 0;
+
+  constructor(
+    private coffeeService: CoffeeService,
+    private route: ActivatedRoute
+  ){}
+
+  ngOnInit(): void {
+    this.route.data.subscribe((data) => {
+      console.log(data);
+      this.coffeeArray = data['CoffeeItem'];
+    });
+  }
 
   onTotalCounterChanged(totalCount: number) {
     this.totalCount = totalCount;
