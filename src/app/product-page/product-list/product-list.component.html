@@ -27,7 +27,7 @@
                     </div>
                     <div class="product-item__checkbox">
                         <label class="product-item__checkbox-label">
-                            <input type="checkbox" name="{{ product.name }}_sugar"
+                            <input type="checkbox" [(ngModel)]="hasSugar[i]"  name="{{ product.name }}_sugar"
                                 (click)="readCoffe()">
                             <span class="product-item__checkmark"></span>
                             <div class="product-item__text">Add sugar</div>

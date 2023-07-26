@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./product-page/product-page/product-page.module').then(m => m.ProductPageModule)
   },
   {
+    path: 'cart',
+    loadChildren: () => import('./cart-page/cart-page.module').then(m => m.CartPageModule),
+  },
+  {
     path: '**',
     redirectTo: '',
     pathMatch: 'full'

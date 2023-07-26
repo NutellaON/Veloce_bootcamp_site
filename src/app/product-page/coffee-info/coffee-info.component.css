@@ -17,13 +17,20 @@
 }
 
 .side-view-container.hide {
-    animation: slideIn  1s forwards;
+    animation: slideIn 1s forwards;
     animation-direction: normal;
 }
 
-@keyframes slideIn  {
-    0%   { right: 0px; top: 0px;}
-    100% { right: 0px; top: 0px;}
+@keyframes slideIn {
+    0% {
+        right: 0px;
+        top: 0px;
+    }
+
+    100% {
+        right: 0px;
+        top: 0px;
+    }
 }
 
 .side-view-container.show {
@@ -32,8 +39,13 @@
 }
 
 @keyframes open {
-    0%   { right: 0px;}
-    100% { right: 0px;}
+    0% {
+        right: 0px;
+    }
+
+    100% {
+        right: 0px;
+    }
 }
 
 .product-item__title {

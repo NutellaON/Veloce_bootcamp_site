@@ -16,6 +16,7 @@
     padding-right: 0px;
     align-items: center;
     gap: 16px;
+    cursor: pointer;
 }
 
 .header__cart-content {

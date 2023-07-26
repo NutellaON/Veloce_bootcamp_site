@@ -5,12 +5,12 @@ import { CoffeeItem } from '../product-page/interfaces/coffee-item.interface';
 import { CoffeeService } from '../services/coffee.service';
 
 @Injectable({
-    providedIn: 'root'
-  })
-  export class CoffeeDataResolver implements Resolve<CoffeeItem[]> {
-    constructor(private CoffeeService: CoffeeService) {}
-  
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<CoffeeItem[]> {
-      return this.CoffeeService.getCoffeeItems();
-    }
+  providedIn: 'root'
+})
+export class CoffeeDataResolver implements Resolve<CoffeeItem[]> {
+  constructor(private CoffeeService: CoffeeService) { }
+
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<CoffeeItem[]> {
+    return this.CoffeeService.getCoffeeItems();
   }
+}

@@ -2,7 +2,7 @@
     <a routerLink="">
         <img class="header__logo" src="assets/Logo.svg" alt="Logo">
     </a>
-    <div class="header__cart">
+    <div class="header__cart" routerLink="cart">
         <div class="header__cart-content">
             <div id="counterCart" class="header__total-count" [style.display]="(totalItemCount > 0) ? 'flex' : 'none'">
                 {{totalItemCount}}</div>
