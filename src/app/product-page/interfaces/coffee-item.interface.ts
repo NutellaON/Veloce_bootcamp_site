@@ -3,7 +3,7 @@ export interface CoffeeItem {
     name: string;
     image: string;
     price: {
-        [size: string]: number; // Price can be represented as an object with dynamic keys (e.g., "250", "500")
+        [size: string]: number;
     };
     stamp: boolean;
     details: {

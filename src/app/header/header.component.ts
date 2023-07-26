@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { TotalCountService } from '../product-page/product-list/service/total-count.service';
+//import { TotalCountService } from '../product-page/product-list/service/total-count.service';
 import { Router } from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -11,13 +12,13 @@ export class HeaderComponent implements OnInit {
   totalItemCount: number = 0;
 
   constructor(
-    private totalCountService: TotalCountService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService,
   ) { }
 
   ngOnInit() {
-      this.totalCountService.getTotalCount().subscribe((count) => {
-      this.totalItemCount = count;
-    });
+    this.cartService.getTotalCount().subscribe((count) => {
+        this.totalItemCount = count;
+      });
   }
 }

@@ -29,7 +29,10 @@ export class CartPageComponent  implements OnInit{
   }
 
   removeItem(index: number){
+    console.log(this.cartItems);
     this.cartItems.splice(index, 1);
+    console.log(this.cartItems);
     this.calculateTotalValue();
+    this.cartService.calculateTotalCount();
   }
 }

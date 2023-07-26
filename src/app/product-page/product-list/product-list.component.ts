@@ -1,5 +1,4 @@
 import { Component, Input, OnInit  } from '@angular/core';
-import { TotalCountService } from './service/total-count.service';
 import { CoffeeItem } from '../interfaces/coffee-item.interface';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -11,13 +10,12 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductListComponent implements OnInit {
   @Input() coffeItems: CoffeeItem[] = [];
   @Input() selectedSize: number[] = [];
-  totalCount:number = 0;
   showAddToCart: boolean[] = [];
   selectedCoffee?: CoffeeItem;
   counter: number[]=[];
   hasSugar: boolean[] = [];
 
-  constructor(private totalCountService: TotalCountService,
+  constructor(
     private cartService: CartService) {}
 
   ngOnInit() {
@@ -29,7 +27,6 @@ export class ProductListComponent implements OnInit {
     console.log(this.hasSugar);
     this.counter[index] = 1;
     this.showAddToCart[index] = !this.showAddToCart[index];
-    this.calculateTotalCount();
 
     const productToAdd = {
       name: this.coffeItems[index].name,
@@ -46,7 +43,6 @@ export class ProductListComponent implements OnInit {
   incrementCounter(index: number) {
     this.counter[index]++;
     this.cartService.incrementCartItem(index);
-    this.calculateTotalCount();
   }
 
   decrementCounter(index: number) {
@@ -59,12 +55,6 @@ export class ProductListComponent implements OnInit {
     else {
       this.counter[index]--;
     }
-    this.calculateTotalCount();
-  }
-
-  private calculateTotalCount(): void {
-    this.totalCount = this.counter.reduce((total, count) => total + count, 0);
-    this.totalCountService.setTotalCount(this.totalCount);
   }
 
   readCoffe() {

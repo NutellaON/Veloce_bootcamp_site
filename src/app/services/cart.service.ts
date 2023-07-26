@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Subject, Observable } from 'rxjs';
 import { ShoppingCartItem } from '../cart-page/interfaces/cart-item.interface';
 
 @Injectable({
@@ -6,6 +7,7 @@ import { ShoppingCartItem } from '../cart-page/interfaces/cart-item.interface';
 })
 export class CartService {
   private cartItems: ShoppingCartItem[] = [];
+  private totalCountSubject: Subject<number> = new Subject<number>();
 
   constructor() { }
 
@@ -19,6 +21,7 @@ export class CartService {
     } else {
       this.cartItems.push(item);
     }
+    this.calculateTotalCount();
   }
 
   incrementCartItem(index: number) {
@@ -26,6 +29,7 @@ export class CartService {
       this.cartItems[index].count++;
       console.log(this.cartItems);
     }
+    this.calculateTotalCount();
   }
 
   decrementCartItem(index: number) {
@@ -37,10 +41,20 @@ export class CartService {
       }
     }
     console.log(this.cartItems);
+    this.calculateTotalCount();
   }
 
   getItems()
   {
     return this.cartItems;
+  }
+
+  calculateTotalCount(): void {
+    const totalCount = this.cartItems.reduce((total, item) => total + item.count, 0);
+    this.totalCountSubject.next(totalCount);
+  }
+
+  getTotalCount(): Observable<number> {
+    return this.totalCountSubject.asObservable();
   }
 }
