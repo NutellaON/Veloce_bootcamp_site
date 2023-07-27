@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { CoffeeItem } from '../interfaces/coffee-item.interface';
+import { CoffeeItem } from '../../interfaces/coffee-item.interface';
 
 @Component({
   selector: 'app-coffee-info',

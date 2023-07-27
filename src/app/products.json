@@ -36,7 +36,7 @@
             "totalCarbohydrate": 5.5,
             "protein": 3.9,
             "vitaminD": 2,
-            "cancium": 169
+            "calcium": 169
         }
     },
     {
@@ -56,7 +56,7 @@
             "totalCarbohydrate": 8.8,
             "protein": 2.1,
             "vitaminD": 2.2,
-            "cancium": 111
+            "calcium": 111
         }
     }
 ]

@@ -1,32 +1,33 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { ShoppingCartItem } from '../cart-page/interfaces/cart-item.interface';
+import { CoffeeInCart } from '../interfaces/cart-details.interface';
+import { CartItem } from '../interfaces/cart-item.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  private cartItems: ShoppingCartItem[] = [];
+  private cartItems: CartItem[] = [];
   private totalCountSubject: Subject<number> = new Subject<number>();
 
   constructor() { }
 
-  addToCart(item: ShoppingCartItem) {
+  addToCart(item: CartItem) {
     const existingItem = this.cartItems.find(
-      (cartItem) => cartItem.name === item.name && cartItem.hasSugar === item.hasSugar
+      (cartItem) => cartItem.productId === item.productId && cartItem.sugar === item.sugar && cartItem.size === item.size
     );
 
     if (existingItem) {
-      existingItem.count++;
+      existingItem.quantity++;
     } else {
-      this.cartItems.push(item);
+     this.cartItems.push(item);
     }
     this.calculateTotalCount();
   }
 
   incrementCartItem(index: number) {
     if (this.cartItems[index]) {
-      this.cartItems[index].count++;
+      this.cartItems[index].quantity++;
       console.log(this.cartItems);
     }
     this.calculateTotalCount();
@@ -34,10 +35,10 @@ export class CartService {
 
   decrementCartItem(index: number) {
     if(this.cartItems[index]) {
-      if (this.cartItems[index].count === 1) {
+      if (this.cartItems[index].quantity === 1) {
         this.cartItems.splice(index, 1);
       } else {
-        this.cartItems[index].count--;
+        this.cartItems[index].quantity--;
       }
     }
     console.log(this.cartItems);
@@ -50,7 +51,7 @@ export class CartService {
   }
 
   calculateTotalCount(): void {
-    const totalCount = this.cartItems.reduce((total, item) => total + item.count, 0);
+    const totalCount = this.cartItems.reduce((total, item) => total + item.quantity, 0);
     this.totalCountSubject.next(totalCount);
   }
 

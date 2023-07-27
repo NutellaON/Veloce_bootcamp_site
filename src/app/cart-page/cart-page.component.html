@@ -4,31 +4,35 @@
         <section class="cart-page__component-container">
             <div class="cart-page__container">
                 <div class="cart-page__item"  *ngFor="let product of cartItems; let i = index" >
-                    <div class="cart-page_image-container">
-                        <img class="cart-page__item-image" [src]="product.image" alt="{{ product.name }}">
-                    </div>
-                    <div class="cart-page__item-description">
-                        <div class="cart-page__item-title">{{product.name}}
-                            <div class="cart-page__item-price">{{product.price}}</div>
+                    <div class="cart-page-item_container">
+                        <div class="cart-page_image-container">
+                            <img class="cart-page__item-image" [src]="product.imgUrl" alt="{{ product.name }}">
                         </div>
-                        <div class="cart-page__item-properties">
-                            <div class="cart-page__item-row">
-                                <img src="../../assets/Cup.svg" alt="Cup">
-                                <div class="cart-page__item-properties-text">{{product.size}}</div>
+                        <div class="cart-page__item-description">
+                            <div class="cart-page__item-title">{{product.name}}
+                                <div class="cart-page__item-price">{{product.price}}</div>
                             </div>
-                            <div class="cart-page__item-row" *ngIf="product.hasSugar">
-                                <img src="../../assets/Sugar.svg" alt="Sugar">
-                                <div class="cart-page__item-properties-text">{{product.size}}</div>
+                            <div class="cart-page__item-properties">
+                                <div class="cart-page__item-row">
+                                    <img src="../../assets/Cup.svg" alt="Cup">
+                                    <div class="cart-page__item-properties-text">{{product.size}}</div>
+                                </div>
+                                <div class="cart-page__item-row" *ngIf="product.sugar">
+                                    <img src="../../assets/Sugar.svg" alt="Sugar">
+                                    <div class="cart-page__item-properties-text">Sugar</div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="cart-page__item-row">
                         <div class="cart-page__item-quantity">
-                            <div class="cart-page__button--counter">-</div>
-                            <div id="cart-page__counter" class="counter">{{product.count}}</div>
-                            <div class="cart-page__button--counter">+</div>
+                            <div class="cart-page__button--counter" (click)="decrementCount(i)">-</div>
+                            <div id="cart-page__counter" class="counter">{{product.quantity}}</div>
+                            <div class="cart-page__button--counter" (click)="incrementCount(i)">+</div>
                         </div>
-                        <img src="../../assets/Icon.svg" alt="Trash can" (click)="removeItem(i)">
+                        <div class="cart-page__item-trash_can">
+                            <img src="../../assets/Icon.svg" alt="Trash can" (click)="removeItem(i)">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,7 +41,7 @@
                 <div class="cart-page__list">
                     <div class="cart-page_checkout_row" *ngFor="let product of cartItems">
                         <div class="cart-page_checkout__text">{{product.name}}, {{product.size}} ml</div>
-                        <div class="cart-page_checkout__value">{{ product.count > 1 ? product.count + 'x ' + product.price : '$' + product.price }}</div>
+                        <div class="cart-page_checkout__value">{{ product.quantity > 1 ? product.quantity + 'x ' + product.price : '$' + product.price }}</div>
                     </div>
                     <div class="cart-page_checkout_row">
                         <div class="cart-page_checkout__text">Delivery</div>
@@ -46,7 +50,7 @@
                 </div>
                 <div class="cart-page__checkout-total">
                     <div class="cart-page_checkout__text">Delivery</div>
-                    <div class="cart-page_checkout__value">${{totalValue}}</div>
+                    <div class="cart-page_checkout__value">${{totalValue | number : '1.2-2'}}</div>
                 </div>
                 <button class="cart-page__checkout-button">To Pay</button>
             </div>

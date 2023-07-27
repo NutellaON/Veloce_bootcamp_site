@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
-import { ShoppingCartItem } from './interfaces/cart-item.interface';
+import { CartItem } from '../interfaces/cart-item.interface';
 import { ActivatedRoute } from '@angular/router';
+import { CoffeeInCart } from '../interfaces/cart-details.interface';
 
 @Component({
   selector: 'app-cart-page',
@@ -9,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./cart-page.component.css']
 })
 export class CartPageComponent  implements OnInit{
-  cartItems: ShoppingCartItem[] = [];
+  cartItems: CoffeeInCart[] = [];
   shipping: number = 5;
   totalValue: number = 0;
 
@@ -17,7 +18,6 @@ export class CartPageComponent  implements OnInit{
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
-      console.log(data);
       this.cartItems = data['cartItems'];
     });
     this.calculateTotalValue();
@@ -25,14 +25,22 @@ export class CartPageComponent  implements OnInit{
 
   calculateTotalValue(): void {
     this.totalValue = this.cartItems.reduce((total, item) => 
-    total + item.price * item.count + this.shipping, 0);
+    total + item.price * item.quantity + this.shipping, 0);
   }
 
   removeItem(index: number){
-    console.log(this.cartItems);
     this.cartItems.splice(index, 1);
-    console.log(this.cartItems);
     this.calculateTotalValue();
     this.cartService.calculateTotalCount();
+  }
+
+  incrementCount(index: number){
+    this.cartService.incrementCartItem(index);
+    this.calculateTotalValue();
+  }
+
+  decrementCount(index: number) {
+    this.cartService.decrementCartItem(index);
+    this.calculateTotalValue();
   }
 }
