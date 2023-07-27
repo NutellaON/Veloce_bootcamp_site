@@ -28,7 +28,6 @@ export class CartService {
   incrementCartItem(index: number) {
     if (this.cartItems[index]) {
       this.cartItems[index].quantity++;
-      console.log(this.cartItems);
     }
     this.calculateTotalCount();
   }
@@ -41,7 +40,6 @@ export class CartService {
         this.cartItems[index].quantity--;
       }
     }
-    console.log(this.cartItems);
     this.calculateTotalCount();
   }
 

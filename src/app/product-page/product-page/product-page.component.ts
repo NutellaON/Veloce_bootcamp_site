@@ -20,7 +20,6 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
-      console.log(data);
       this.coffeeArray = data['CoffeeItem'];
 
       this.selectedSize = this.coffeeArray.map(() => 250);
