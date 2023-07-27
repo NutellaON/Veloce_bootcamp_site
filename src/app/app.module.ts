@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { ProductPageModule } from './product-page/product-page/product-page.module';
 import { CartPageModule } from './cart-page/cart-page.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CartPageModule } from './cart-page/cart-page.module';
     AppRoutingModule,
     ProductPageModule,
     HttpClientModule,
-    CartPageModule
+    CartPageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

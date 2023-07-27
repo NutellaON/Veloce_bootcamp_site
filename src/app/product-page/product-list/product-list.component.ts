@@ -1,11 +1,23 @@
 import { Component, Input, OnInit  } from '@angular/core';
 import { CoffeeItem } from '../interfaces/coffee-item.interface';
 import { CartService } from 'src/app/services/cart.service';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
+  animations: [
+    trigger('fadeSlide', [
+      transition(':enter', [
+        style({ opacity: 0, }),
+        animate('1s ease-in-out', style({ opacity: 1 })),
+      ]),
+      transition(':leave', [
+        animate('1s ease-in-out' , style({ opacity: 0 })),
+      ]),
+    ]),
+  ],
 })
 export class ProductListComponent implements OnInit {
   @Input() coffeItems: CoffeeItem[] = [];
@@ -14,6 +26,8 @@ export class ProductListComponent implements OnInit {
   selectedCoffee?: CoffeeItem;
   counter: number[]=[];
   hasSugar: boolean[] = [];
+  currentSize: number=0;
+  open: boolean=false;
 
   constructor(
     private cartService: CartService) {}
@@ -61,8 +75,10 @@ export class ProductListComponent implements OnInit {
     console.log(this.coffeItems);
   }
 
-  showCoffeeInfo(coffee: any) {
+  showCoffeeInfo(coffee: CoffeeItem, index: number) {
     this.selectedCoffee = coffee;
+    this.currentSize = this.selectedSize[index];
+    this.open=true;
   }
 
   closeCoffeeInfo() {

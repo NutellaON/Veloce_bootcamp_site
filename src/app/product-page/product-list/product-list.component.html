@@ -47,11 +47,11 @@
                             <button class="product-item__button--counter" (click)="incrementCounter(i)">+</button>
                         </div>
                     </div>
-                    <img class="product-item__info" src="assets/Info.svg" alt="info" (click)="showCoffeeInfo(product)">
+                    <img class="product-item__info" src="assets/Info.svg" alt="info" (click)="showCoffeeInfo(product, i)">
                 </div>
             </div>
         </div>
     </div>
 </section>
-<app-coffee-info *ngIf="selectedCoffee" [coffee]="selectedCoffee" (closeClicked)="closeCoffeeInfo()"></app-coffee-info>
+<app-coffee-info @fadeSlide *ngIf="selectedCoffee" [coffee]="selectedCoffee" [selectedSize]="currentSize" (closeClicked)="closeCoffeeInfo()"></app-coffee-info>
 

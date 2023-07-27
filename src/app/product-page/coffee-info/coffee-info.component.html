@@ -1,39 +1,39 @@
-<div class="side-view-container" *ngIf="closeClicked">
+<div class="side-view-container">
     <div class="product-item__title">
-        <div class="product-item__name">{{ coffee.name }}</div>
-        <div class="product-item__price">${{ coffee.price }}</div>
+        <div class="product-item__name">{{coffee?.name}}</div>
+        <div class="product-item__price">${{ coffee?.price?.[selectedSize]}}</div>
     </div>
-    <div class="product-item__image">
-        <img class="product-item__image" [src]="coffee.image" alt="{{ coffee.alt }}">
+    <div class="product-item__image" >
+        <img class="product-item__image" [src]="coffee?.image" alt="{{ coffee?.name }}">
     </div>
     <div class="product-item__list">
         <div class="product-item_row">
             <div class="product-item__text">Calories</div>
-            <div class="product-item__value">Value</div>
+            <div class="product-item__value">{{coffee?.details?.calories}}</div>
         </div>
         <div class="product-item_row">
             <div class="product-item__text">Cholesterol</div>
-            <div class="product-item__value">Value</div>
+            <div class="product-item__value">{{coffee?.details?.cholesterol}}</div>
         </div>
         <div class="product-item_row">
             <div class="product-item__text">Sodium</div>
-            <div class="product-item__value">Value</div>
+            <div class="product-item__value">{{coffee?.details?.sodium}}</div>
         </div>
         <div class="product-item_row">
             <div class="product-item__text">Total Carbohydrate</div>
-            <div class="product-item__value">Value</div>
+            <div class="product-item__value">{{coffee?.details?.totalCarbohydrate}}</div>
         </div>
         <div class="product-item_row unique">
             <div class="product-item__text">Protein</div>
-            <div class="product-item__value">Value</div>
+            <div class="product-item__value">{{coffee?.details?.protein}}</div>
         </div>
         <div class="product-item_row">
             <div class="product-item__text">Vitamin D</div>
-            <div class="product-item__value">Value</div>
+            <div class="product-item__value">{{coffee?.details?.vitaminD}}</div>
         </div>
         <div class="product-item_row">
             <div class="product-item__text">Calcium</div>
-            <div class="product-item__value">Value</div>
+            <div class="product-item__value">{{coffee?.details?.calcium}}</div>
         </div>
     </div>
         <button class="product-item__button" (click)="closeSideView()">Cool, got it</button>

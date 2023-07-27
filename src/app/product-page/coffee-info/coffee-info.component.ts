@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { CoffeeItem } from '../interfaces/coffee-item.interface';
 
 @Component({
   selector: 'app-coffee-info',
@@ -6,7 +7,8 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./coffee-info.component.css']
 })
 export class CoffeeInfoComponent   {
-  @Input() coffee: any;
+  @Input() coffee?: CoffeeItem;
+  @Input() selectedSize: number = 0;
   showSideView: boolean = false;
 
   @Output() closeClicked: EventEmitter<void> = new EventEmitter<void>();
