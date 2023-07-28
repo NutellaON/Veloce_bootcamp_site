@@ -7,8 +7,8 @@
         <div class="product-item__description">
             <div class="product-item__title">
                 <div class="product-item__name">{{ product.name }}</div>
-                <div class="product-item__price">${{ selectedSize[i] === 250 ? product.price['250'] :
-                    product.price['500'] }}</div>
+                <div class="product-item__price">{{ selectedSize[i] === 250 ? product.price['250'] :
+                    product.price['500']  }}</div>
             </div>
             <div class="product-item__additional">
                 <form>
@@ -39,12 +39,6 @@
                         <button class="product-item__button" id="addToCartButton" (click)="addToCart(i)">
                             <div class="product-item__button--text" id="addText">Add to cart</div>
                         </button>
-                        <!-- <div class="counter-wrapper" id="counterWrapper"
-                            [style.display]="showAddToCart[i] ? 'flex' : 'none'">
-                            <button class="product-item__button--counter" (click)="decrementCounter(i)">-</button>
-                            <div id="product-item__counter" class="counter">{{ counter[i] }}</div>
-                            <button class="product-item__button--counter" (click)="incrementCounter(i)">+</button>
-                        </div> -->
                     </div>
                     <img class="product-item__info" src="assets/Info.svg" alt="info"
                         (click)="showCoffeeInfo(product, i)">

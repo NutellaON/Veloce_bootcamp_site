@@ -1,7 +1,7 @@
 <div class="side-view-container">
     <div class="product-item__title">
         <div class="product-item__name">{{coffee?.name}}</div>
-        <div class="product-item__price">${{ coffee?.price?.[selectedSize]}}</div>
+        <div class="product-item__price">{{ coffee?.price?.[selectedSize] | currency:'USD':'symbol':'1.2-2'}}</div>
     </div>
     <div class="product-item__image" >
         <img class="product-item__image" [src]="coffee?.image" alt="{{ coffee?.name }}">

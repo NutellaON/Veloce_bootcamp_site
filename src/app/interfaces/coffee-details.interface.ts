@@ -7,5 +7,4 @@ export interface CoffeeDetails {
     protein: number;
     vitaminD: number;
     calcium: number;
-  }
-  
+}

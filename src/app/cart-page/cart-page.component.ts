@@ -43,4 +43,8 @@ export class CartPageComponent  implements OnInit{
     this.cartService.decrementCartItem(index);
     this.calculateTotalValue();
   }
+
+  getItemTotalPrice(item: CoffeeInCart){
+    return item.quantity > 1 ? `${item.quantity}x ${item.price}` : `$${item.price} `;
+  }
 }
