@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
+import { CoffeeService } from './coffee.service';
 import { CoffeeInCart } from '../interfaces/cart-details.interface';
 import { CartItem } from '../interfaces/cart-item.interface';
 
@@ -10,9 +11,27 @@ export class CartService {
   private cartItems: CartItem[] = [];
   private totalCountSubject: Subject<number> = new Subject<number>();
 
-  constructor() { }
+  constructor(private coffeeService: CoffeeService) { }
 
-  addToCart(item: CartItem) {
+  fetchProductDetails(cartItem: CartItem) {
+    const { productId, size, sugar, quantity } = cartItem;
+    this.coffeeService.getProductById(productId).subscribe((product) => {
+      if (product) {
+        const productToAdd = {
+          name: product.name,
+          imgUrl: product.image,
+          price: size === '250' ? product.price['250'] : product.price['500'],
+          productId,
+          size,
+          sugar,
+          quantity,
+        };
+        this.addToCart(productToAdd);
+      }
+    });
+  }
+
+  addToCart(item: CoffeeInCart) {
     const existingItem = this.cartItems.find(
       (cartItem) => cartItem.productId === item.productId && cartItem.sugar === item.sugar && cartItem.size === item.size
     );
@@ -43,7 +62,7 @@ export class CartService {
     this.calculateTotalCount();
   }
 
-  getItems()
+  getItems(): CartItem[]
   {
     return this.cartItems;
   }

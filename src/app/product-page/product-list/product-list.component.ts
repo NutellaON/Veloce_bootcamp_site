@@ -33,24 +33,21 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
     this.hasSugar = this.coffeItems.map(() => false);
-    //this.counter = this.coffeItems.map(() => 0);
   }
 
   addToCart(index: number) {
     this.counter[index] = +1;
-    this.showAddToCart[index] = !this.showAddToCart[index];
-    
-    const productToAdd = {
-      name: this.coffeItems[index].name,
-      imgUrl: this.coffeItems[index].image,
-      price: this.selectedSize[index] === 250 ? this.coffeItems[index].price['250'] : this.coffeItems[index].price['500'],
+    this.showAddToCart[index] = !this.showAddToCart[index]; 
+
+     const productToAdd = {
       productId: this.coffeItems[index].id,
       size: this.selectedSize[index].toString(),
       sugar: this.hasSugar[index],
       quantity: this.counter[index]
     };
 
-    this.cartService.addToCart(productToAdd);
+
+    this.cartService.fetchProductDetails(productToAdd);
   }
 
   showCoffeeInfo(coffee: CoffeeItem, index: number) {
