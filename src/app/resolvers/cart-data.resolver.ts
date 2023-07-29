@@ -11,6 +11,6 @@ export class CartResolverService implements Resolve<CartItem[]> {
     constructor(private cartService: CartService) { }
 
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<CartItem[]> {
-        return of(this.cartService.getItems());
+        return of(this.cartService.getCartItems());
     }
 }

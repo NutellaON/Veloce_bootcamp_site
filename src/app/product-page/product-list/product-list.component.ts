@@ -20,7 +20,7 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
   ],
 })
 export class ProductListComponent implements OnInit {
-  @Input() coffeItems: CoffeeItem[] = [];
+  @Input() coffeeItems: CoffeeItem[] = [];
   @Input() selectedSize: number[] = [];
   showAddToCart: boolean[] = [];
   selectedCoffee?: CoffeeItem;
@@ -32,7 +32,7 @@ export class ProductListComponent implements OnInit {
     private cartService: CartService) {}
 
   ngOnInit() {
-    this.hasSugar = this.coffeItems.map(() => false);
+    this.hasSugar = this.coffeeItems.map(() => false);
   }
 
   addToCart(index: number) {
@@ -40,7 +40,7 @@ export class ProductListComponent implements OnInit {
     this.showAddToCart[index] = !this.showAddToCart[index]; 
 
      const productToAdd = {
-      productId: this.coffeItems[index].id,
+      productId: this.coffeeItems[index].id,
       size: this.selectedSize[index].toString(),
       sugar: this.hasSugar[index],
       quantity: this.counter[index]

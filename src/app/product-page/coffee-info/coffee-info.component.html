@@ -1,4 +1,4 @@
-<div class="side-view-container">
+<aside class="side-view-container">
     <div class="product-item__title">
         <div class="product-item__name">{{coffee?.name}}</div>
         <div class="product-item__price">{{ coffee?.price?.[selectedSize] | currency:'USD':'symbol':'1.2-2'}}</div>
@@ -37,4 +37,4 @@
         </div>
     </div>
         <button class="product-item__button" (click)="closeSideView()">Cool, got it</button>
-</div>
+</aside>

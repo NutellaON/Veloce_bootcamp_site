@@ -62,7 +62,7 @@ export class CartService {
     this.calculateTotalCount();
   }
 
-  getItems(): CartItem[]
+  getCartItems(): CartItem[]
   {
     return this.cartItems;
   }

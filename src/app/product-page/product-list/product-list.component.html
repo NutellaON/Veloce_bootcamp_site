@@ -1,34 +1,34 @@
 <section class="product-list">
-    <div class="product-item" *ngFor="let product of coffeItems; let i = index">
+    <article class="product-item" *ngFor="let product of coffeeItems; let id = index">
         <div class="product-item__container">
             <img class="prudct-item__stamp" src="assets/Stamp.svg" alt="Stamp" *ngIf="product.stamp === true">
             <img class="product-item__image" [src]="product.image" alt="{{ product.name }}">
         </div>
         <div class="product-item__description">
-            <div class="product-item__title">
-                <div class="product-item__name">{{ product.name }}</div>
-                <div class="product-item__price">{{ selectedSize[i] === 250 ? product.price['250'] :
-                    product.price['500']  }}</div>
-            </div>
+            <header  class="product-item__title">
+                <h2 class="product-item__name">{{ product.name }}</h2>
+                <div class="product-item__price">{{ selectedSize[id] === 250 ? product.price['250'] :
+                    product.price['500'] }}</div>
+            </header>
             <div class="product-item__additional">
                 <form>
                     <div class="product-item__radio-group">
                         <label class="product-item__radio">
                             <input type="radio" [value]=250 name="{{ product.name }}_size"
-                                [(ngModel)]="selectedSize[i]">
+                                [(ngModel)]="selectedSize[id]">
                             <span class="product-item__radiomark"></span>
                             <p class="product-item__text">250 ML</p>
                         </label>
                         <label class="product-item__radio">
                             <input type="radio" [value]=500 name="{{ product.name }}_size"
-                                [(ngModel)]="selectedSize[i]">
+                                [(ngModel)]="selectedSize[id]">
                             <span class="product-item__radiomark"></span>
                             <p class="product-item__text">500 ML</p>
                         </label>
                     </div>
                     <div class="product-item__checkbox">
                         <label class="product-item__checkbox-label">
-                            <input type="checkbox" [(ngModel)]="hasSugar[i]" name="{{ product.name }}_sugar">
+                            <input type="checkbox" [(ngModel)]="hasSugar[id]" name="{{ product.name }}_sugar">
                             <span class="product-item__checkmark"></span>
                             <div class="product-item__text">Add sugar</div>
                         </label>
@@ -36,16 +36,16 @@
                 </form>
                 <div class="product-item__bottom">
                     <div class="button-container">
-                        <button class="product-item__button" id="addToCartButton" (click)="addToCart(i)">
+                        <button class="product-item__button" id="addToCartButton" (click)="addToCart(id)">
                             <div class="product-item__button--text" id="addText">Add to cart</div>
                         </button>
                     </div>
                     <img class="product-item__info" src="assets/Info.svg" alt="info"
-                        (click)="showCoffeeInfo(product, i)">
+                        (click)="showCoffeeInfo(product, id)">
                 </div>
             </div>
         </div>
-    </div>
+    </article>
 </section>
 <app-coffee-info @fadeSlide *ngIf="selectedCoffee" [coffee]="selectedCoffee" [selectedSize]="currentSize"
     (closeClicked)="closeCoffeeInfo()"></app-coffee-info>

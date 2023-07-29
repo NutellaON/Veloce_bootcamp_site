@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router'
   styleUrls: ['./product-page.component.css']
 })
 export class ProductPageComponent implements OnInit {
-  coffeeArray: CoffeeItem[] = [];
+  coffeeItems: CoffeeItem[] = [];
   totalCount: number = 0;
   selectedSize: number[] = [];
 
@@ -20,9 +20,8 @@ export class ProductPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.data.subscribe((data) => {
-      this.coffeeArray = data['CoffeeItem'];
-
-      this.selectedSize = this.coffeeArray.map(() => 250);
+      this.coffeeItems = data['CoffeeItem'];
+      this.selectedSize = this.coffeeItems.map(() => 250);
     });
   }
 
